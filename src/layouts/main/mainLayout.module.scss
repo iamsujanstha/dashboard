@@ -1,0 +1,33 @@
+.main-layout {
+  display: flex;
+  min-height: 100vh;
+
+  aside {
+    &.aside-section {
+      width: 250px;
+      background-color: var(--sidebar-bg-color);
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      overflow-y: auto;
+
+      // @include respond-to('mobile') {
+      //   width: 100px; /* Collapsed or hidden on mobile */
+      // }
+    }
+  }
+  section{
+    &.main-section {
+      margin-left: 250px;
+      padding: 1rem;
+      width: 100%;
+
+      // @include respond-to('mobile') {
+      //   margin-left: 100px;
+      //   /* Adjust for smaller sidebar */
+      //   padding: 1rem;
+      // }
+    }
+  }
+}
