@@ -1,11 +1,10 @@
-import React from 'react'
 import { Icons } from '../../../utils/iconConfig'
-import Styles from './header.module.scss'
+import styles from './header.module.scss'
 import ToggleTheme from '../../core/toggleTheme/ToggleTheme'
 
 const Header = () => {
   return (
-    <header className={Styles.header}>
+    <header className={styles.header}>
       <h1>Dashboard</h1>
       <div>
         <ToggleTheme />

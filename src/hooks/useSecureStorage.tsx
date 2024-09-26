@@ -18,6 +18,7 @@ const useSecureStorage = (key: string, initialValue: string, secretKey: string) 
 
   const [storedValue, setStoredValue] = useState(getStoredValue);
 
+  // eslint-disable-next-line no-unused-vars
   const setValue = (value: string | ((value: string) => string)) => {
     try {
       const valueToStore = value instanceof Function ? value(storedValue) : value;
