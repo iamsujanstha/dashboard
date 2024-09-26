@@ -1,0 +1,39 @@
+.flag-item {
+  display: grid;
+  grid-template-columns: auto 1fr 2.5fr 0.8fr;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  gap: 4px;
+
+  .flag-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+
+  .flag-text {
+    display: flex;
+    flex-direction: column;
+
+    .data {
+      color: var(--text-color-dark);
+      font-weight: bold;
+    }
+
+    .country-name {
+      font-size: 12px;
+    }
+
+  }
+
+  span {
+    &.percentage {
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-left: 10px;
+    }
+  }
+}

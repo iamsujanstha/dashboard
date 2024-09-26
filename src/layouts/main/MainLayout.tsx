@@ -1,25 +1,28 @@
-// MainLayout.tsx
-import { ReactNode, useState } from 'react';
-import Sidebar from '../../components/core/sidebar/Sidebar';
-import styles from './mainLayout.module.scss'
+import React, { useState } from 'react';
+import Sidebar from '../../components/core/sidebar/Sidebar'
+import styles from './mainLayout.module.scss';
 
-
-const MainLayout = ({ children }: { children: ReactNode }) => {
-  const [isCollapsed, setCollapsed] = useState(false);
+const MainLayout = ({ children }: { children: React.ReactNode }) => {
+  const [isCollapsed, setIsCollapsed] = useState(false);
 
   const handleToggle = () => {
-    setCollapsed((prev) => !prev);
+    setIsCollapsed((prev) => !prev);
   };
 
   return (
-    <main className={styles.mainLayout}>
-      <aside className={styles.asideSection} style={{ width: isCollapsed ? '60px' : '250px' }}>
+    <div
+      className={styles.mainLayout}
+      style={{
+        '--sidebar-width': isCollapsed ? '60px' : '260px'
+      } as React.CSSProperties}
+    >
+      <aside className={styles.asideSection}>
         <Sidebar isCollapsed={isCollapsed} onToggle={handleToggle} />
       </aside>
       <section className={styles.mainSection}>
         {children}
       </section>
-    </main>
+    </div>
   );
 };
 

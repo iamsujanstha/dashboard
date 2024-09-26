@@ -1,0 +1,71 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+
+  .header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+
+    .icon {
+      margin-right: 1rem;
+    }
+
+    .title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: var(--text-color-dark)
+    }
+  }
+
+  .content {
+    flex-grow: 1;
+
+    .mainValue {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      color: var(--text-color-dark)
+    }
+
+    .subText {
+      font-size: 0.9rem;
+      color: #888;
+    }
+
+    .trend {
+      margin-top: 0.5rem;
+
+      :first-child {
+        margin-right: 12px;
+      }
+
+      .up {
+        color: green;
+      }
+
+      .down {
+        color: red;
+      }
+    }
+  }
+
+  .sales-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    hr {
+      height: 100%;
+      color: var(--text-color);
+    }
+  }
+
+  .profit-content {
+    margin-left: 1rem;
+
+
+  }
+}
