@@ -1,12 +1,12 @@
-import React from 'react'
 import MainLayout from '../../layouts/main/MainLayout'
+import Dashboard from '../../containers/dashboard/Dashboard'
 
-const Dashboard = () => {
+const DashboardPage = () => {
   return (
     <MainLayout>
-      <div>Dashboard</div>
+      <Dashboard />
     </MainLayout>
   )
 }
 
-export default Dashboard
+export default DashboardPage
