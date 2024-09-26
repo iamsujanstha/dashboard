@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import CryptoJS from 'crypto-js';
 
+/* used CryptJS to encrypt localStorage key value pair to secure */
 const useSecureStorage = (key: string, initialValue: string, secretKey: string) => {
   const getStoredValue = () => {
     const encryptedData = localStorage.getItem(btoa(key));
@@ -17,7 +18,7 @@ const useSecureStorage = (key: string, initialValue: string, secretKey: string) 
 
   const [storedValue, setStoredValue] = useState(getStoredValue);
 
-  const setValue = (value: string | ((value: string) => string)) => { // value is callBack function here
+  const setValue = (value: string | ((value: string) => string)) => {
     try {
       const valueToStore = value instanceof Function ? value(storedValue) : value;
       const encryptedData = CryptoJS.AES.encrypt(JSON.stringify(valueToStore), secretKey).toString();

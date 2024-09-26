@@ -20,9 +20,9 @@ function App() {
 
   return (
     <div>
-      <button onClick={toggleTheme}>
+      {/* <button onClick={toggleTheme}>
         Switch to {theme === 'light' ? 'Dark' : 'Light'} Mode
-      </button>
+      </button> */}
       <DashboardPage />
     </div>
   );
