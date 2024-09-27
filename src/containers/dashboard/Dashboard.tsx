@@ -1,7 +1,8 @@
 import Card from "../../components/shared/card/Card"
 import styles from './style.module.scss';
-import { Images } from "../../assets/images/images";
 import FlagItem from "./components/flag-items/FlagItems";
+import UserDetails from "./components/user-details/UserDetails";
+import { Images } from "@/assets/images/images";
 
 
 const Dashboard = () => {
@@ -68,6 +69,7 @@ const Dashboard = () => {
           />
         ))}
       </Card>
+      <UserDetails />
     </div>
   )
 }

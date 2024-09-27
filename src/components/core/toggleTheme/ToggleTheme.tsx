@@ -1,5 +1,5 @@
+import useSecureStorage from '@/hooks/useSecureStorage';
 import { useEffect } from 'react'
-import useSecureStorage from '../../../hooks/useSecureStorage';
 
 
 const THEME_KEY = import.meta.env.VITE_THEME_SECRET_KEY;
