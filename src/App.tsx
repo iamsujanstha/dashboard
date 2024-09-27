@@ -1,5 +1,5 @@
+import DashboardPage from '@/pages/dashboard/DashboardPage';
 import './scss/main.scss';
-import DashboardPage from './pages/dashboard/DashboardPage';
 
 
 function App() {

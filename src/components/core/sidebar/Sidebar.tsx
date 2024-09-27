@@ -1,8 +1,8 @@
-import { Icons } from '../../../utils/iconConfig';
 import styles from './sidebar.module.scss';
 import clsx from 'clsx';
 import { sidebarData } from './sidebarConfig';
-import Tooltip from '../../shared/tooltip/Tooltip';
+import Tooltip from '@/components/shared/tooltip/Tooltip';
+import { Icons } from '@/utils/iconConfig';
 
 interface ISidebar {
   isCollapsed: boolean;

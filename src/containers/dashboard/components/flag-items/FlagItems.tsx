@@ -1,6 +1,6 @@
-import ProgressBar from '../../../../components/shared/progress-bar/ProgressBar';
-import { Icons } from '../../../../utils/iconConfig';
+import ProgressBar from '@/components/shared/progress-bar/ProgressBar';
 import styles from './flagItems.module.scss'
+import { Icons } from '@/utils/iconConfig';
 
 interface IFlagItem {
   flagSrc: string;

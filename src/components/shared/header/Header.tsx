@@ -1,6 +1,7 @@
-import { Icons } from '../../../utils/iconConfig'
+import ToggleTheme from '@/components/core/toggleTheme/ToggleTheme'
 import styles from './header.module.scss'
-import ToggleTheme from '../../core/toggleTheme/ToggleTheme'
+import { Icons } from '@/utils/iconConfig'
+
 
 const Header = () => {
   return (

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Sidebar from '../../components/core/sidebar/Sidebar'
 import styles from './mainLayout.module.scss';
+import Sidebar from '@/components/core/sidebar/Sidebar';
 
 const MainLayout = ({ children }: { children: React.ReactNode }) => {
   const [isCollapsed, setIsCollapsed] = useState(false);

@@ -1,0 +1,39 @@
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  height: 100%;
+  padding: 1rem;
+
+  section {
+    &:first-child {
+      display: flex;
+      align-items: center;
+      margin-left: 2rem;
+      gap: 12px;
+    }
+
+    &:nth-child(2) {
+      div {
+        &:first-of-type {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+    }
+
+    &:last-child {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      .count-container {
+        display: flex;
+        flex-direction: row;
+      }
+    }
+  }
+}
+
+.tabs {
+  display: flex;
+}

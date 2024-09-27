@@ -1,6 +1,8 @@
-import MainLayout from '../../layouts/main/MainLayout'
-import Dashboard from '../../containers/dashboard/Dashboard'
-import Header from '../../components/shared/header/Header'
+
+import Header from '@/components/shared/header/Header'
+import Dashboard from '@/containers/dashboard/Dashboard'
+import MainLayout from '@/layouts/main/MainLayout'
+
 
 const DashboardPage = () => {
   return (
