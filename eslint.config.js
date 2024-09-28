@@ -9,15 +9,6 @@ export default [
   {
     files: ['**/*.{ts,tsx}'],
     ignores: ['dist'],
-    extends: [
-      'eslint:recommended',
-      'plugin:@typescript-eslint/recommended',
-      'plugin:prettier/recommended',
-
-      // Extends two more configuration from "import" plugin
-      'plugin:import/recommended',
-      'plugin:import/typescript',
-    ],
     settings: {
       'import/resolver': {
         typescript: {
@@ -34,8 +25,6 @@ export default [
       'react-hooks': reactHooks,
       '@typescript-eslint': tseslint,
       'react-refresh': reactRefresh,
-      "import": "eslint-plugin-import",
-      "prettier": "eslint-plugin-prettier"
     },
     rules: {
       // TypeScript ESLint recommended rules
@@ -49,26 +38,26 @@ export default [
         'warn',
         { allowConstantExport: true },
       ],
-      'import/order': [
-        'error',
-        {
-          groups: [
-            'builtin', // Built-in imports (come from NodeJS native) go first
-            'external', // <- External imports
-            'internal', // <- Absolute imports
-            ['sibling', 'parent'], // <- Relative imports, the sibling and parent types they can be mingled together
-            'index', // <- index imports
-            'unknown', // <- unknown
-          ],
-          'newlines-between': 'always',
-          alphabetize: {
-            /* sort in ascending order. Options: ["ignore", "asc", "desc"] */
-            order: 'asc',
-            /* ignore case. Options: [true, false] */
-            caseInsensitive: true,
-          },
-        },
-      ],
+      // 'import/order': [
+      //   'error',
+      //   {
+      //     groups: [
+      //       'builtin', // Built-in imports (come from NodeJS native) go first
+      //       'external', // <- External imports
+      //       'internal', // <- Absolute imports
+      //       ['sibling', 'parent'], // <- Relative imports, the sibling and parent types they can be mingled together
+      //       'index', // <- index imports
+      //       'unknown', // <- unknown
+      //     ],
+      //     'newlines-between': 'always',
+      //     alphabetize: {
+      //       /* sort in ascending order. Options: ["ignore", "asc", "desc"] */
+      //       order: 'asc',
+      //       /* ignore case. Options: [true, false] */
+      //       caseInsensitive: true,
+      //     },
+      //   },
+      // ],
     },
   },
 ];

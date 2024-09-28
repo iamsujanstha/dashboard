@@ -1,6 +1,7 @@
 import { Images } from '@/assets/images/images'
 import './userDetail.module.scss'
-import Card from '@/components/shared/card/Card'
+import styles from './userDetail.module.scss'
+import Box from '@/components/shared/box/Box'
 
 
 const tabs = [
@@ -19,7 +20,7 @@ const tabs = [
 ]
 const UserDetails = () => {
   return (
-    <Card width='100%'>
+    <Box width='100%'>
       <main>
         <section>
           <img src={Images.Avatar} alt='user' width={50} height={50} />
@@ -35,11 +36,23 @@ const UserDetails = () => {
             <p>Contact Number</p>
             <p>972938023</p>
           </div>
+          <div>
+            <p>Contact Number</p>
+            <p>972938023</p>
+          </div>
+          <div>
+            <p>Contact Number</p>
+            <p>972938023</p>
+          </div>
         </section>
         <section>
           <p>SHIPPING ADDRESS</p>
           <p>Address usa, 345X St. Lusia</p>
-          <div className='count-container'>
+          <div className={styles.countContainer}>
+            <div>
+              <p>150</p>
+              <span>Total Order</span>
+            </div>
             <div>
               <p>150</p>
               <span>Total Order</span>
@@ -51,16 +64,16 @@ const UserDetails = () => {
           </div>
         </section>
       </main>
-      <div className='tabs' style={{ display: 'flex', gap: '12px' }}>
+      <div className={styles.tabs}>
         {tabs.map((tab) => {
           return (
-            <div key={tab.id} role='tab'>
+            <div key={tab.id} role='tab' className={styles.tab}>
               {tab.name}
             </div>
           )
         })}
       </div>
-    </Card>
+    </Box>
   )
 }
 

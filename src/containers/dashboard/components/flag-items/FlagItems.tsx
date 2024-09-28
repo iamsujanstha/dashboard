@@ -13,13 +13,13 @@ interface IFlagItem {
 const FlagItem = ({ flagSrc, countryName, data, percentage, status }: IFlagItem) => {
   return (
     <div className={styles.flagItem}>
-      <img src={flagSrc} alt={`${countryName} Flag`} className={styles.flagIcon} width={40} height={40} />
+      <img src={flagSrc} alt={`${countryName} Flag`} className={styles.flagIcon} width={50} height={50} />
       <div className={styles.flagText}>
         <span className={styles.data}>{data}</span>
         <span className={styles.countryName}>{countryName}</span>
       </div>
       <ProgressBar percentage={percentage} />
-      <span className={styles.percentage}><Icons.DownIcon color={status === 'profit' ? 'green' : 'red'} />{percentage}%</span>
+      <span className={styles.percentage} style={{ color: status === 'profit' ? 'green' : 'red' }}><Icons.DownIcon color={status === 'profit' ? 'green' : 'red'} />{percentage}%</span>
     </div>
   );
 };

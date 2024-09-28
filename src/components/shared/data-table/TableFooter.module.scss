@@ -1,0 +1,54 @@
+.table-footer {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 0.6rem 1rem;
+  align-items: center;
+  background-color: var(--sidebar-bg-color);
+  margin-top: -16px;
+  margin-bottom: 10px;
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  .view {
+    display: flex;
+    gap: 1rem;
+    color: var(--text-color-dark);
+    align-items: center;
+
+    select {
+      padding: 6px 8px;
+      border-radius: 6px;
+    }
+  }
+
+  .page-number {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: var(--text-color-dark);
+    gap: 6px;
+
+    p {
+      &:first-of-type {
+        margin-right: 18px;
+      }
+    }
+  }
+
+  button {
+    background-color: var(--primary-bg-color);
+    margin: 2px;
+    padding: 4px 8px;
+    color: var(--text-color-dark);
+    border-radius: 6px;
+    border: 1px solid var(--text-color-dark);
+    outline: none;
+
+    &:hover {
+      background-color: blue;
+      color: white;
+      cursor: pointer;
+    }
+  }
+}

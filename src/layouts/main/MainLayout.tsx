@@ -1,13 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './mainLayout.module.scss';
 import Sidebar from '@/components/core/sidebar/Sidebar';
+import { useSidebarContext } from '@/hooks/useSidebarContext';
 
 const MainLayout = ({ children }: { children: React.ReactNode }) => {
-  const [isCollapsed, setIsCollapsed] = useState(false);
-
-  const handleToggle = () => {
-    setIsCollapsed((prev) => !prev);
-  };
+  const { isCollapsed } = useSidebarContext();
 
   return (
     <div
@@ -17,7 +14,7 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
       } as React.CSSProperties}
     >
       <aside className={styles.asideSection}>
-        <Sidebar isCollapsed={isCollapsed} onToggle={handleToggle} />
+        <Sidebar />
       </aside>
       <section className={styles.mainSection}>
         {children}

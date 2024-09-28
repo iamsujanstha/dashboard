@@ -7,7 +7,6 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    // position: relative;
 
     .logo {
       font-size: 18px;
@@ -24,17 +23,11 @@
     .toggle-icon {
       position: absolute;
       right: 12px;
-
-      &.collapsed {
-        transform: rotate(180deg);
-        right: -10px;
-      }
     }
   }
 
   nav {
-    margin-top: 2rem;
-    margin-left: 8px;
+    margin-top: 3rem;
 
     &.collapsed {
       display: flex;
@@ -47,7 +40,7 @@
     }
 
     ul {
-      margin-left: -50px;
+      margin-top: 1rem;
 
       li {
         list-style: none;
