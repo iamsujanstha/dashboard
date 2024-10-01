@@ -10,7 +10,7 @@ export function recalculatePage(prevPage: number, nextPage: number): number {
   return Math.min(prevPage, nextPage)
 }
 
-export const paginationRowOpt = [10, 20, 30, 50, 80, 100]
+export const paginationRowOpt = [1, 2, 3, 5, 8, 100]
 
 interface GetPageNumbersArgs {
   currentPage: number

@@ -1,7 +1,11 @@
+/* eslint-disable no-unused-vars */
 import { Images } from '@/assets/images/images'
 import './userDetail.module.scss'
 import styles from './userDetail.module.scss'
 import Box from '@/components/shared/box/Box'
+// import { TAB } from '@/enum/tabEnum'
+// import { useState } from 'react'
+import clsx from 'clsx'
 
 
 const tabs = [
@@ -18,9 +22,18 @@ const tabs = [
     name: 'Cancelled',
   }
 ]
-const UserDetails = () => {
+
+interface IUserDetails {
+  activeTab: number;
+  setActiveTab: (activeTab: number) => void;
+}
+const UserDetails = ({ activeTab, setActiveTab }: IUserDetails) => {
+  const handleTabClick = (id: number) => () => {
+    setActiveTab(id)
+  }
+
   return (
-    <Box width='100%'>
+    <Box width='100%' height='221px'>
       <main>
         <section>
           <img src={Images.Avatar} alt='user' width={50} height={50} />
@@ -37,12 +50,12 @@ const UserDetails = () => {
             <p>972938023</p>
           </div>
           <div>
-            <p>Contact Number</p>
-            <p>972938023</p>
+            <p>Date of Birth</p>
+            <p>1 Jan, 1985</p>
           </div>
           <div>
-            <p>Contact Number</p>
-            <p>972938023</p>
+            <p>Member Since</p>
+            <p>3 March, 2023</p>
           </div>
         </section>
         <section>
@@ -67,7 +80,7 @@ const UserDetails = () => {
       <div className={styles.tabs}>
         {tabs.map((tab) => {
           return (
-            <div key={tab.id} role='tab' className={styles.tab}>
+            <div key={tab.id} role='tab' className={clsx(styles.tab, (activeTab === tab.id) && styles.active)} onClick={handleTabClick(tab.id)}>
               {tab.name}
             </div>
           )

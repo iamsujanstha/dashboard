@@ -7,7 +7,7 @@ import { useSidebarContext } from '@/hooks/useSidebarContext';
 
 const Sidebar = () => {
   const { isCollapsed, toggleSidebar } = useSidebarContext();
-  console.log({ isCollapsed })
+
   return (
     <div className={clsx(styles.container, { [styles.collapsed]: isCollapsed })}>
       <div className={styles.top}>

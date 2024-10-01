@@ -34,12 +34,26 @@ interface IDataTable<TData> {
 }
 
 const DataTable = <TData extends RowData>(props: IDataTable<TData>) => {
-  const { hasPagination, recordsTotal, paginationRowsPerPage, columns, data } = props;
+  const { hasPagination, recordsTotal, paginationRowsPerPage, columns, data, onPaginationChange, pageCount, pageIndex, pageSize } = props;
+  const memorizedData = React.useMemo(() => data, [data]);
+  const memoizedColumns = React.useMemo(() => columns, [columns]);
+  const pagination = React.useMemo(
+    () => ({
+      pageIndex: pageIndex || 0,
+      pageSize: pageSize || 10
+    }),
+    [pageIndex, pageSize]
+  );
 
   const table = useReactTable({
-    data,
-    columns,
+    data: memorizedData,
+    columns: memoizedColumns,
     getCoreRowModel: getCoreRowModel(),
+    onPaginationChange: onPaginationChange || undefined,
+    pageCount: pageCount ?? 0,
+    state: {
+      pagination: pagination || undefined,
+    },
   })
 
   return (

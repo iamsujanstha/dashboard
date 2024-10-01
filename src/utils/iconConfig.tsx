@@ -12,6 +12,8 @@ import { ReactComponent as DownIcon } from '../assets/icons/chevron-down.svg'
 import { ReactComponent as CirclePlusIcon } from '../assets/icons/circle-plus.svg'
 import { ReactComponent as SearchIcon } from '../assets/icons/search.svg'
 import { ReactComponent as CartIcon } from '../assets/icons/shopping-cart.svg'
+import { ReactComponent as RightIcon } from '../assets/icons/chevron-right.svg';
+import { ReactComponent as LeftIcon } from '../assets/icons/chevron-left.svg';
 
 
 interface IconProps {
@@ -37,5 +39,7 @@ export const Icons = {
   DownIcon,
   CirclePlusIcon,
   SearchIcon,
-  CartIcon
+  CartIcon,
+  RightIcon,
+  LeftIcon
 };
