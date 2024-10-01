@@ -3,22 +3,22 @@ import clsx from 'clsx';
 import { sidebarData } from './sidebarConfig';
 import Tooltip from '@/components/shared/tooltip/Tooltip';
 import { Icons } from '@/utils/iconConfig';
+import { useSidebarContext } from '@/hooks/useSidebarContext';
 
-interface ISidebar {
-  isCollapsed: boolean;
-  onToggle: () => void;
-}
-
-const Sidebar = ({ isCollapsed, onToggle }: ISidebar) => {
-
+const Sidebar = () => {
+  const { isCollapsed, toggleSidebar } = useSidebarContext();
+  console.log({ isCollapsed })
   return (
     <div className={clsx(styles.container, { [styles.collapsed]: isCollapsed })}>
       <div className={styles.top}>
         <span className={styles.logo}>
           <Icons.Logo fontSize={28} />
-          <span>JoBins</span>
+          {!isCollapsed && <span>JoBins</span>}
         </span>
-        <span className={clsx(styles.toggleIcon, { [styles.collapsed]: isCollapsed })}><Icons.ToggleIcon fontSize={24} cursor='pointer' onClick={onToggle} /></span>
+        {!isCollapsed && <span className={clsx(styles.toggleIcon, { [styles.collapsed]: isCollapsed })}>
+          <Icons.ToggleIcon fontSize={24} cursor='pointer' onClick={toggleSidebar} />
+        </span>
+        }
       </div>
       {sidebarData.map((section, index) => (
         <nav key={index} className={clsx(styles.menuItems, { [styles.collapsed]: isCollapsed })}>

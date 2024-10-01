@@ -11,4 +11,38 @@
   h1 {
     color: var(--text-color-dark);
   }
+
+  .headerRight {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+
+    .notification {
+      position: relative;
+      cursor: pointer;
+    }
+
+    .count {
+      background-color: var(--notification-badge-color);
+      padding: 2px;
+      border-radius: 14px;
+      font-size: 12px;
+      color: white;
+      position: absolute;
+      right: 40px;
+      top: 10px;
+      min-width: 15px;
+      text-align: center;
+      width: fit-content;
+    }
+  }
+
+  .toggle {
+    position: absolute;
+    top: 12px;
+    left: -40px;
+    transform: rotate(180deg);
+    cursor: pointer;
+  }
 }

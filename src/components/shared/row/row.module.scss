@@ -1,0 +1,10 @@
+.dynamic-grid {
+  display: grid;
+  width: 100%;
+}
+
+.dynamic-grid>* {
+  background-color: #f0f0f0;
+  padding: 16px;
+  border: 1px solid #ccc;
+}
