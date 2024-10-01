@@ -8,8 +8,16 @@ table {
 
   th,
   td {
-    padding: 20px;
+    padding: 16px;
     text-align: left;
+    color: var(--text-color-dark);
+  }
+
+  th {
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--text-color);
+    text-transform: uppercase;
   }
 
   tbody {
@@ -20,6 +28,7 @@ table {
 
       td {
         border-top: 1px solid var(--text-color);
+        font-size: 14px;
       }
 
       &:last-child {

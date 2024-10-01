@@ -3,6 +3,7 @@ import { getPageNumbers, paginationRowOpt } from "@/utils/table-utils";
 // import { ArrowLineLeft, ArrowLineRight, CaretLeft, CaretRight } from "@phosphor-icons/react";
 import { PaginationState, RowData, Table } from "@tanstack/react-table";
 import styles from './TableFooter.module.scss';
+import { Icons } from "@/utils/iconConfig";
 
 interface ITableFooterProps<TData> {
   table: Table<TData>;
@@ -73,16 +74,9 @@ const TableFooter = <TData extends RowData>({
         </p>
         <button
           type="button"
-          onClick={() => table.setPageIndex(0)}
-          disabled={!table.getCanPreviousPage()}
-        >
-          {/* <ArrowLineLeft size={16} className="" /> */} left
-        </button>
-        <button
-          type="button"
           onClick={() => table.previousPage()}
         >
-          left
+          <Icons.LeftIcon />
         </button>
 
         {/* <div className="mx-4 flex"> */}
@@ -120,20 +114,11 @@ const TableFooter = <TData extends RowData>({
         {/* </div> */}
         <button
           type="button"
-          onClick={() => table.nextPage()}
-          className={!table.getCanNextPage() ? "cursor-not-allowed " : "cursor-pointer "}
-          disabled={!table.getCanNextPage()}
-          data-testid="next-page"
-        >
-          right
-        </button>
-        <button
-          type="button"
           onClick={() => table.setPageIndex(table.getPageCount() - 1)}
           className={!table.getCanNextPage() ? "cursor-not-allowed" : "cursor-pointer"}
           disabled={!table.getCanNextPage()}
         >
-          right
+          <Icons.RightIcon />
         </button>
       </div>
     </div>

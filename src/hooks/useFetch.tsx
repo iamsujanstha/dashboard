@@ -10,6 +10,16 @@ const useFetch = (baseUrl: string, queryParams: Record<string, string | number> 
   Object.keys(queryParams).forEach((key) => url.searchParams.append(key, String(queryParams[key])));
 
   useEffect(() => {
+    if (!baseUrl || !queryParams) return;
+
+    const url = new URL(baseUrl);
+
+    Object.keys(queryParams).forEach((key) => {
+      const value = queryParams[key];
+      if (value) {
+        url.searchParams.append(key, String(value));
+      }
+    });
     const fetchData = async () => {
       setLoading(true);
       setError(null);
@@ -30,7 +40,7 @@ const useFetch = (baseUrl: string, queryParams: Record<string, string | number> 
     };
 
     fetchData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
   }, [queryParams, baseUrl]);
 
   return { data, loading, error };

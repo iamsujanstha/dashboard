@@ -3,15 +3,17 @@ import styles from './box.module.scss';
 
 interface IBoxProps {
   children: ReactNode,
-  width?: string
+  width?: string,
+  height?: string
 }
 
 const Box: React.FC<IBoxProps> = ({
   children,
-  width
+  width,
+  height
 }) => {
   return (
-    <div className={styles.box} style={{ width }}>
+    <div className={styles.box} style={{ width, minHeight: height }}>
       {children}
     </div>
   );
