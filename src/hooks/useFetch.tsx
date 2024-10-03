@@ -16,9 +16,7 @@ const useFetch = (baseUrl: string, queryParams: Record<string, string | number> 
 
     Object.keys(queryParams).forEach((key) => {
       const value = queryParams[key];
-      if (value) {
-        url.searchParams.append(key, String(value));
-      }
+      url.searchParams.append(key, String(value));
     });
     const fetchData = async () => {
       setLoading(true);
