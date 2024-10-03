@@ -1,4 +1,4 @@
-# Jobins Frontend Challenge
+# Jobins Frontend
 
 ## Setup Instructions
 
