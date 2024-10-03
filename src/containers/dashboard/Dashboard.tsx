@@ -123,7 +123,7 @@ const Dashboard = () => {
             <div className={styles.content}>
               <div className={styles.mainValue}>$350K</div>
               <div className={styles.trend}>
-                <span className={styles['up' || '']}>↑ 8.56%</span>
+                <span className={styles['up']}>↑ 8.56%</span>
                 <span>vs last 7 days</span>
               </div>
             </div>
@@ -144,7 +144,7 @@ const Dashboard = () => {
           <div className={styles.content}>
             <div className={styles.mainValue}>$50K</div>
             <div className={styles.trend}>
-              <span className={styles['up' || '']}>↑ 12%</span>
+              <span className={styles['up']}>↑ 12%</span>
               <span>vs last 7 days</span>
             </div>
           </div>
