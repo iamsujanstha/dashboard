@@ -9,7 +9,6 @@ import { createColumnHelper, PaginationState } from '@tanstack/react-table';
 import useFetch from '@/hooks/useFetch';
 import { useEffect, useMemo, useState } from 'react';
 import { TAB } from '@/enum/tabEnum';
-import Modal from '@/components/shared/modal/Modal';
 
 const flagData = [
   { flagSrc: Images.usFlag, countryName: 'United States', data: '30k', percentage: 34, status: 'profit' },
@@ -20,14 +19,13 @@ const flagData = [
 const Dashboard = () => {
   const BaseURL = import.meta.env.VITE_API_ENDPOINT_URL;
   const [activeTab, setActiveTab] = useState(TAB.ALL_ORDERS);
-  const [showView, setShowView] = useState(false);
   const [pageCount, setPageCount] = useState(0);
   const [{ pageIndex, pageSize }, setPagination] = useState<PaginationState>({
     pageIndex: 0,
-    pageSize: 2
+    pageSize: 10
   });
 
-  let limit = 2;
+  let limit = pageSize;
 
   useEffect(() => {
     if (data?.data) {
@@ -35,24 +33,20 @@ const Dashboard = () => {
       const modulus = Number(data.items) % pageSize;
 
       if (data.items)
-        setPageCount(modulus === 0 ? pgCount : parseInt(pgCount.toString(), 10) + 1);
+        setPageCount(Number(modulus === 0 ? pgCount : parseInt(pgCount.toString(), 10) + 1));
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pageSize]);
 
   const queryParams = useMemo(() => ({
     limit,
-    _page: 1,
+    _page: pageIndex + 1,
     status: activeTab === TAB.COMPLETED ? 'Completed' : activeTab === TAB.CANCELLED ? 'Cancelled' : '',
-  }), [activeTab, limit]);
+  }), [activeTab, limit, pageIndex]);
+
 
   const { data } = useFetch(BaseURL + '/orders', queryParams);
-  console.log(activeTab)
 
-
-  const handleView = () => {
-    setShowView(true)
-  }
   const columnHelper = createColumnHelper<any>();
 
   const columns = [
@@ -90,7 +84,7 @@ const Dashboard = () => {
     }),
     {
       header: 'Action',
-      cell: <p role='button' style={{ color: 'var(--table-action-color)', cursor: 'pointer' }} onClick={handleView}>View Detail</p>
+      cell: <p role='button' style={{ color: 'var(--table-action-color)', cursor: 'pointer' }} >View Detail</p>
     }
   ]
 
@@ -100,15 +94,14 @@ const Dashboard = () => {
     Cancelled: 'red',
   };
 
-  console.log(data)
-
-
   useEffect(() => {
-    if (data?.data?.length) {
-      setPageCount(Math.ceil(data?.totalItems / limit))
+    if (data?.totalItems && limit) {
+      const pgCount = Math.ceil(data.totalItems / limit);
+      setPageCount(pgCount);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [limit])
+
+  }, [data?.totalItems, limit]);
+
 
   return (
     <div className={styles.container}>
@@ -178,7 +171,7 @@ const Dashboard = () => {
         recordsTotal={data?.items}
         onPaginationChange={setPagination}
       />
-      {showView && <Modal isOpen={showView} />}
+      {/* {showView && <Modal isOpen={showView} />} */}
     </div>
   )
 }
