@@ -5,7 +5,7 @@ import UserDetails from "./components/user-details/UserDetails";
 import { Images } from "@/assets/images/images";
 import DataTable from "@/components/shared/data-table/DataTable";
 import Box from '@/components/shared/box/Box';
-import { createColumnHelper, PaginationState } from '@tanstack/react-table';
+import { ColumnDef, createColumnHelper, PaginationState } from '@tanstack/react-table';
 import useFetch from '@/hooks/useFetch';
 import { useEffect, useMemo, useState } from 'react';
 import { TAB } from '@/enum/tabEnum';
@@ -49,7 +49,7 @@ const Dashboard = () => {
 
   const columnHelper = createColumnHelper<any>();
 
-  const columns = [
+  const columns: ColumnDef<any, any>[] = [
     columnHelper.accessor('id', {
       cell: info => '#' + info.getValue(),
       footer: info => info.column.id,
@@ -84,7 +84,11 @@ const Dashboard = () => {
     }),
     {
       header: 'Action',
-      cell: <p role='button' style={{ color: 'var(--table-action-color)', cursor: 'pointer' }} >View Detail</p>
+      cell: () => (
+        <p role='button' style={{ color: 'var(--table-action-color)', cursor: 'pointer' }}>
+          View Detail
+        </p>
+      ),
     }
   ]
 
