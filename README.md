@@ -1,4 +1,4 @@
-# Jobins Frontend
+# Dashboard
 
 ## Setup Instructions
 
